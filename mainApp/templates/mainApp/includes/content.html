@@ -1,0 +1,36 @@
+<style>
+   form {
+    color: #000000; /* Цвет текста */
+    padding: 10px; /* Поля вокруг текста */
+    border-radius: 5px; /* Уголки */
+   }
+
+  </style>
+
+<form action="" method="post" style="display: flex; flex-direction: column; width: 450px; margin: 0 auto 0 auto;">
+
+<div class="content">
+
+    {% for comment in comments %}
+
+       <div img class="center" src="images/1.jpg">
+
+            <h3>{{ comment.user_name }}</h3>
+
+            <p>
+                {{ comment.text }}
+            </p>
+
+            <span>
+                <a href="{% url 'comment:comment_vote' comment.id %}" id="like1" class="glyphicon glyphicon-ok-circle"></a><span>{{ comment.vote }}</span>
+            </span>
+
+       <hr style="border-color: black;">
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+ </form>
